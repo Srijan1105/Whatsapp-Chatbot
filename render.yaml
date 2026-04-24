@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: whatsapp-chatbot
+    runtime: java
+    buildCommand: mvn clean package -DskipTests
+    startCommand: java -jar target/chatbot-1.0.0.jar
+    envVars:
+      - key: PORT
+        generateValue: false
+      - key: SERVER_PORT
+        value: 10000
