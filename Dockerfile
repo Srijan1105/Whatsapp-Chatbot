@@ -9,4 +9,4 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jre
 WORKDIR /app
 COPY --from=build /app/target/chatbot-1.0.0.jar app.jar
-CMD ["sh", "-c", "java -jar app.jar --server.port=${PORT:-8080}"]
+CMD ["sh", "-c", "java -Xms64m -Xmx256m -XX:TieredStopAtLevel=1 -jar app.jar --server.port=${PORT:-8080}"]
